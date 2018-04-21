@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="add_goal_name">What is your GOAL?</string>
+    <string name="save">Save</string>
+    <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
+    <string name="add_goal_time">When is your deadline to achieve this?</string>
+    <string name="smart_goal">S.M.A.R.T goal</string>
+    <string name="date">Date</string>
+    <string name="time">Time:</string>
+</resources>
