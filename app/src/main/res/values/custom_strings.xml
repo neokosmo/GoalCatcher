@@ -8,4 +8,12 @@
     <string name="smart_goal">S.M.A.R.T goal</string>
     <string name="date">Date</string>
     <string name="time">Time:</string>
+
+    <!-- Error message -->
+    <string name="error_1">Please input your goal</string>
+    <string name="error_2">The date should not be later than today</string>
+
+    <!-- DB message -->
+    <string name="is_inserted">You successfully add a goal</string>
+    <string name="db_error_1">Failed to add a goal</string>
 </resources>

@@ -1,5 +1,8 @@
 package database.access.object;
 
+import android.content.ContentValues;
+import android.database.Cursor;
+import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
@@ -36,5 +39,28 @@ public class DatabaseManager {
         if (aiCounter.decrementAndGet() == 0) {
             sdDatabase.close();
         }
+    }
+
+    public Cursor getGoalDetails(String query){
+        return sdDatabase.rawQuery(query, null);
+    }
+
+    public boolean insertGoal(String tableName, ContentValues cvContent){
+        long returnVal = -1;
+        try {
+            returnVal = sdDatabase.insert(tableName,null,cvContent);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return returnVal != -1;
+    }
+
+    public boolean deleteGoal(String tableName, String[] goalId){
+        try {
+            sdDatabase.delete(tableName,GoalCatcherDAO.GOAL_ID + "=?",goalId);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return true;
     }
 }

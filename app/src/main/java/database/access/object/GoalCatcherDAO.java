@@ -9,17 +9,17 @@ public class GoalCatcherDAO extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "database_goal";
     private static final int DATABASE_VERSION = 1;
 
-    private static final String TBL_GOAL = "goal_table";
-    private static final String GOAL_ID = "id";
-    private static final String GOAL_NAME = "goal_name";
-    private static final String GOAL_DATE_TIME = "goal_date_time";
+    public static final String TBL_GOAL = "goal_table";
+    public static final String GOAL_ID = "id";
+    public static final String GOAL_NAME = "goal_name";
+    public static final String GOAL_DATE_TIME = "goal_date_time";
 
-    private final String TABLE_GOAL_DROP = "DROP TABLE IF EXIST " + TBL_GOAL;
+    private final String TABLE_GOAL_DROP = "DROP TABLE IF EXISTS " + TBL_GOAL;
 
     private final String TABLE_GOAL_CREATE = "CREATE TABLE " + TBL_GOAL + " (" +
                                         GOAL_ID + " INTEGER PRIMARY KEY," +
                                         GOAL_NAME + " TEXT," +
-                                        GOAL_DATE_TIME + "DATETIME)";
+                                        GOAL_DATE_TIME + " DATETIME)";
 
     public GoalCatcherDAO(Context context){
         super(context,DATABASE_NAME, null, DATABASE_VERSION);
@@ -32,7 +32,6 @@ public class GoalCatcherDAO extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-
     }
 
     public void dropDatabase(SQLiteDatabase db){

@@ -6,6 +6,8 @@ public class DateDisplay {
     private int year;
     private int month;
     private int dayOfMonth;
+    private int hour;
+    private int minute;
 
     private String monthName [] = { "Jan","Feb","Mar",
                                     "Apr","May","Jun",
@@ -15,13 +17,19 @@ public class DateDisplay {
     private String dayOfWeekName [] = { "Sun","Mon","Tue","Wed",
                                         "Thu","Fri","Sat" };
 
-    DateDisplay(){
-    }
-
     DateDisplay(int year, int month, int dayOfMonth){
         this.year = year;
         this.month = month;
         this.dayOfMonth = dayOfMonth;
+        this.hour = 0;
+        this.minute = 0;
+    }
+    DateDisplay(int year, int month, int dayOfMonth, int hour, int minute){
+        this.year = year;
+        this.month = month;
+        this.dayOfMonth = dayOfMonth;
+        this.hour = hour;
+        this.minute = minute;
     }
 
     private String getMonthName(){
@@ -40,6 +48,13 @@ public class DateDisplay {
         this.month = calendar.get(Calendar.MONTH);
         this.dayOfMonth = calendar.get(Calendar.DATE);
         return toString();
+    }
+
+    public boolean compareBefore(DateDisplay dateToday){
+        return  this.year < dateToday.year || this.year <= dateToday.year &&
+                (this.month < dateToday.month || this.month <= dateToday.month &&
+                        (this.dayOfMonth < dateToday.dayOfMonth || this.dayOfMonth <= dateToday.dayOfMonth &&
+                                (this.hour < dateToday.hour || this.hour <= dateToday.hour&&this.minute <= dateToday.minute)));
     }
 
     @Override
